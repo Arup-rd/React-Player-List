@@ -1,0 +1,29 @@
+{
+  "name": "myapp",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.17.1",
+    "concurrently": "^3.5.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.1.0",
+    "body-parser": "^1.18.2",
+    "compression": "^1.7.1",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "helmet": "^3.10.0",
+    "mongoose": "^5.0.3",
+    "morgan": "^1.9.0",
+    "node-fetch": "^2.0.0",
+    "nodemon": "^1.14.12"
+  },
+  "scripts": {
+    "start": "concurrently \"npm run react\" \"npm run server\"",
+    "react": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "server": "nodemon server/index.js"
+  }
+}

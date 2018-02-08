@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  padding: 0;
+  align-content: center;
+  font-family: sans-serif;
+  background-image: url(Football-Player.jpg);
+ }
+ #Main{
+   margin-left: 50px;
+ }
+ h1,h2{
+    color: azure;
+    margin-top: 20px;
+ }
+ .li{
+   color: white;
+   background: transparent;
+ }
+ input{
+   margin-top: 20px;
+ }
+.bt{
+  margin-left: 10px;
+}
+.btt{
+  margin-left: 50px;
+  flex-grow: 5
+}
+
+.list-group{
+  width:500px;
+  display:flex;
+}
+
+.item{
+  flex-flow: 5;
+}
+
+.btn{
+}
