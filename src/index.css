@@ -17,13 +17,12 @@ body {
    background: transparent;
  }
  input{
-   margin-top: 20px;
  }
 .bt{
   margin-left: 10px;
 }
 .btt{
-  margin-left: 50px;
+  margin-left: 10px;
   flex-grow: 5
 }
 
@@ -37,4 +36,12 @@ body {
 }
 
 .btn{
+}
+
+form{
+  margin: 10px 0px;
+}
+
+#editBox{
+  margin-right: 15px;
 }

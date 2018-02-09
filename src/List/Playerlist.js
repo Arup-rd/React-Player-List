@@ -1,40 +1,36 @@
  import React, { Component } from 'react'
+ import List from './List';
 
-//  class Playerlist extends Component {
-//     render(){
-//     return(
-//         <ul>
-//            {this.props.detail.map(function(name,index){
-//               return <li 
-//               key={index}>{name}
-//               <button onClick={(e)=>{
-//                   e.stopPropagation();
-//                  this.props.deleteTask(index)
-//                  }}>Delete</button>
-//               </li>          
-//            })}
-//         </ul>
-//     )
-// }
-// }
-// export default Playerlist;
+export default class Playerlist extends React.Component {
+    constructor(props){
+        super(props);
+        this.onDeleteItem = this.onDeleteItem.bind(this);
+        this.onEditItem = this.onEditItem.bind(this);
+    }
 
+    onDeleteItem(id){
+        this.props.deleteTask(id);
+    }
 
+    onEditItem(item, id){
+        this.props.EditTask(item, id);
+        
+    }
 
- const Playerlist = (props) =>{
-    
-    return(
-        <ul className="list-group">
-           {props.detail.map(function(name,index){
-              return <li className="list-group-item li"
-              key={index}>
-              <span className="item">{name.item}</span>
-              <button className="btn btn-info btt" onClick={()=>{
-                 props.deleteTask(name._id)
-              }}>Delete</button>
-              </li>          
-           })}
-        </ul>
-    )
+    render(){
+        return(
+            <ul className="list-group">
+            {this.props.detail.map((name,index)=>{
+                return (
+                    <List 
+                        key={index} 
+                        items={name} 
+                        onDeleteItem={this.onDeleteItem}
+                        onEditItem={this.onEditItem}
+                    />
+                )
+            })}
+            </ul>
+        )
+    }
 }
-export default Playerlist;

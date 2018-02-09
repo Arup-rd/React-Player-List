@@ -40,6 +40,7 @@ app.delete('/:id', async (req, res)=>{
     res.status(200).send('Deleted'); 
 })
 
+app.options('/:id', cors);
 app.put('/:id', async (req, res)=>{
     await Data.findById(req.params.id, (err, prevData) => {
         if(err) res.status(500).send(err);

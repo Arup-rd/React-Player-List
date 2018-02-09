@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "concurrently \"npm run react\" \"npm run server\"",
-    "react": "react-scripts start",
+    "react": "react-scripts start --port=5555",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",

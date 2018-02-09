@@ -9,11 +9,13 @@ export default class Player extends Component{
     constructor(props){
         super(props);        
         this.state={
-            list : []
+            list : [], 
+            cap: true
         }
         this.updateTask=this.updateTask.bind(this)
         this.addTask=this.addTask.bind(this)
         this.deleteTask=this.deleteTask.bind(this)
+        this.EditTask = this.EditTask.bind(this)
 
     }
 
@@ -63,7 +65,7 @@ export default class Player extends Component{
     }
 
     deleteTask(index){
-        console.log(index);
+        // console.log(index);
 
         axios.delete('http://localhost:9999/'+index)
         .then(res=>{
@@ -73,13 +75,18 @@ export default class Player extends Component{
         .catch(err=>{
             console.log(err);            
         })
+    }
 
-
-        // let item=this.state.list;
-        // item.splice(index,1)
-        // this.setState({
-        //     list : item
-        // })
+    EditTask(player, id){
+        console.log(player, id)  
+        axios.put('http://localhost:9999/'+id, {item: player})  
+        .then((res)=>{
+            this.updateTask();
+            console.log("Updated ", player);            
+        })  
+        .catch((err)=>{
+            console.log("Error", err)
+        })          
     }
 
     render(){
@@ -90,8 +97,11 @@ export default class Player extends Component{
                  <Playerform add={this.addTask}
                  updateTask={this.updateTask}                
                  />
-                 <Playerlist detail={this.state.list}
-                 deleteTask={this.deleteTask}
+                 <Playerlist
+                    cap={this.state.cap} 
+                    detail={this.state.list}
+                    deleteTask={this.deleteTask}
+                    EditTask={this.EditTask}
                  />
             </div>
         )
